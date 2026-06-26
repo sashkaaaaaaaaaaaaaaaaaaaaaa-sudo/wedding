@@ -248,6 +248,90 @@
         font-size: clamp(0.58rem, 1.6vw, 0.78rem);
       }
 
+      .calendar-section {
+        background: linear-gradient(180deg, rgba(255, 253, 248, 0.84), rgba(246, 239, 227, 0.82));
+      }
+
+      .calendar-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 40px 30px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        border-radius: 12px;
+        backdrop-filter: blur(14px);
+      }
+
+      .calendar-ornament {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--gold-deep);
+        margin-bottom: 20px;
+        letter-spacing: 0.3em;
+      }
+
+      .calendar-month {
+        font-size: clamp(1.4rem, 4vw, 2rem);
+        font-weight: 400;
+        color: var(--ink);
+        margin-bottom: 20px;
+        letter-spacing: 0.05em;
+      }
+
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+        margin-bottom: 25px;
+      }
+
+      .day-header {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gold-deep);
+        text-align: center;
+        letter-spacing: 0.05em;
+        padding: 8px 0;
+        text-transform: uppercase;
+      }
+
+      .day {
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        color: var(--ink);
+        position: relative;
+      }
+
+      .day.wedding-date {
+        font-weight: 600;
+        color: #c41e3a;
+      }
+
+      .day.wedding-date::after {
+        content: "♥";
+        position: absolute;
+        font-size: 1.4rem;
+        color: #c41e3a;
+        opacity: 0.8;
+        animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      .day.other-month {
+        color: #ccc;
+      }
+
+      .calendar-footer {
+        text-align: center;
+        color: var(--gold-deep);
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        margin-top: 15px;
+      }
+
       .program-grid {
         display: grid;
         grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
@@ -403,6 +487,16 @@
         }
       }
 
+      @keyframes heartbeat {
+        0%, 100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
       @media (max-width: 760px) {
         .hero {
           min-height: 100svh;
@@ -522,6 +616,10 @@
         .quote-panel {
           padding: clamp(28px, 5vw, 48px) clamp(16px, 4vw, 40px);
         }
+
+        .calendar-container {
+          padding: 25px 20px;
+        }
       }
 
       @media (max-width: 420px) {
@@ -610,6 +708,22 @@
           height: 48px;
           margin-top: 24px;
         }
+
+        .calendar-grid {
+          gap: 6px;
+        }
+
+        .day-header {
+          font-size: 0.7rem;
+        }
+
+        .day {
+          font-size: 0.85rem;
+        }
+
+        .day.wedding-date::after {
+          font-size: 1.1rem;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -625,6 +739,10 @@
         .reveal {
           opacity: 1;
           transform: none;
+        }
+
+        .day.wedding-date::after {
+          animation: none;
         }
       }
     </style>
@@ -643,7 +761,7 @@
     <main>
       <section class="section invitation">
         <div class="section-inner reveal">
-          <p class="section-kicker">Наша історія триває</p>
+          <p class="section-kicker">Наша історія續</p>
           <p class="lead">
             З любов'ю запрошуємо Вас розділити з нами найщасливіший день нашого життя
           </p>
@@ -672,6 +790,69 @@
               <span class="num" id="seconds">0</span>
               <span class="label">Секунд</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section calendar-section">
+        <div class="section-inner reveal">
+          <p class="section-kicker">Дата святкування</p>
+          <h2>Серпень 2026</h2>
+          <div class="calendar-container">
+            <div class="calendar-ornament">✿ ❁ ✿</div>
+            <div class="calendar-month">Серпень 2026</div>
+            <div class="calendar-grid">
+              <div class="day-header">Пн</div>
+              <div class="day-header">Вт</div>
+              <div class="day-header">Ср</div>
+              <div class="day-header">Чт</div>
+              <div class="day-header">Пт</div>
+              <div class="day-header">Сб</div>
+              <div class="day-header">Нд</div>
+
+              <div class="day other-month">26</div>
+              <div class="day other-month">27</div>
+              <div class="day other-month">28</div>
+              <div class="day other-month">29</div>
+              <div class="day other-month">30</div>
+              <div class="day other-month">31</div>
+              <div class="day">1</div>
+
+              <div class="day">3</div>
+              <div class="day">4</div>
+              <div class="day">5</div>
+              <div class="day">6</div>
+              <div class="day">7</div>
+              <div class="day wedding-date">8</div>
+              <div class="day">9</div>
+
+              <div class="day">10</div>
+              <div class="day">11</div>
+              <div class="day">12</div>
+              <div class="day">13</div>
+              <div class="day">14</div>
+              <div class="day">15</div>
+              <div class="day">16</div>
+
+              <div class="day">17</div>
+              <div class="day">18</div>
+              <div class="day">19</div>
+              <div class="day">20</div>
+              <div class="day">21</div>
+              <div class="day">22</div>
+              <div class="day">23</div>
+
+              <div class="day">24</div>
+              <div class="day">25</div>
+              <div class="day">26</div>
+              <div class="day">27</div>
+              <div class="day">28</div>
+              <div class="day">29</div>
+              <div class="day">30</div>
+
+              <div class="day">31</div>
+            </div>
+            <div class="calendar-ornament">✿ ❁ ✿</div>
           </div>
         </div>
       </section>
