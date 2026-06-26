@@ -2,7 +2,7 @@
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Весільне онлайн-запрошення Юрія та Олександри на 08 серпня 2026 року."
@@ -250,6 +250,7 @@
 
       .calendar-section {
         background: linear-gradient(180deg, rgba(255, 253, 248, 0.84), rgba(246, 239, 227, 0.82));
+        padding: clamp(60px, 11vw, 120px) 18px !important;
       }
 
       .calendar-container {
@@ -304,20 +305,27 @@
         font-size: 0.95rem;
         color: var(--ink);
         position: relative;
+        font-weight: 500;
       }
 
       .day.wedding-date {
         font-weight: 600;
-        color: #c41e3a;
+        color: var(--ink);
+        font-size: 1rem;
       }
 
-      .day.wedding-date::after {
-        content: "♥";
+      .day.wedding-date::before {
+        content: "♡";
         position: absolute;
-        font-size: 1.4rem;
-        color: #c41e3a;
-        opacity: 0.8;
+        font-size: 1.6rem;
+        color: var(--gold-deep);
+        z-index: 0;
         animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      .day.wedding-date {
+        position: relative;
+        z-index: 1;
       }
 
       .day.other-month {
@@ -493,7 +501,7 @@
         }
 
         50% {
-          transform: scale(1.2);
+          transform: scale(1.15);
         }
       }
 
@@ -721,8 +729,8 @@
           font-size: 0.85rem;
         }
 
-        .day.wedding-date::after {
-          font-size: 1.1rem;
+        .day.wedding-date::before {
+          font-size: 1.3rem;
         }
       }
 
@@ -741,7 +749,7 @@
           transform: none;
         }
 
-        .day.wedding-date::after {
+        .day.wedding-date::before {
           animation: none;
         }
       }
@@ -796,8 +804,6 @@
 
       <section class="section calendar-section">
         <div class="section-inner reveal">
-          <p class="section-kicker">Дата святкування</p>
-          <h2>Серпень 2026</h2>
           <div class="calendar-container">
             <div class="calendar-ornament">✿ ❁ ✿</div>
             <div class="calendar-month">Серпень 2026</div>
