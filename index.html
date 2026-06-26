@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Весільне онлайн-запрошення Юрія та Олександри на 08 серпня 2026 року."
+    />
+    <title>Юрій & Олександра | Запрошення на весілля</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #2d2924;
+        --muted: #786e62;
+        --paper: #fffdf8;
+        --cream: #f6efe3;
+        --cream-soft: #fbf5eb;
+        --white: #ffffff;
+        --gold: #b79050;
+        --gold-deep: #8f6932;
+        --line: rgba(183, 144, 80, 0.26);
+        --shadow: 0 26px 70px rgba(63, 49, 33, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 8%, rgba(183, 144, 80, 0.11), transparent 28rem),
+          linear-gradient(180deg, var(--paper), var(--cream-soft) 48%, var(--paper));
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        text-align: center;
+      }
+
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: 5;
+        pointer-events: none;
+        content: "";
+        opacity: 0.22;
+        background-image:
+          linear-gradient(rgba(45, 41, 36, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(45, 41, 36, 0.035) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(to bottom, transparent, black 20%, black 82%, transparent);
+      }
+
+      button,
+      a {
+        font: inherit;
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        min-height: 100svh;
+        place-items: end center;
+        overflow: hidden;
+        padding: max(28px, env(safe-area-inset-top)) 18px max(42px, env(safe-area-inset-bottom));
+        color: var(--white);
+        isolation: isolate;
+        background: linear-gradient(135deg, #5a4a3a 0%, #3d3028 50%, #2a1f17 100%);
+      }
+
+      .hero::before {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        content: "";
+        background:
+          linear-gradient(180deg, rgba(30, 25, 20, 0.1) 0%, rgba(30, 25, 20, 0.28) 42%, rgba(27, 22, 18, 0.78) 100%),
+          linear-gradient(135deg, #6b5a4a 0%, #4a3f38 50%, #3a2f28 100%);
+        transform: scale(1.03);
+        animation: portraitSettle 1800ms ease-out both;
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: 18px;
+        z-index: -1;
+        content: "";
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        pointer-events: none;
+      }
+
+      .hero-content {
+        width: min(100%, 1060px);
+        padding: 12vh 0 3vh;
+        text-shadow: 0 4px 28px rgba(0, 0, 0, 0.42);
+      }
+
+      .eyebrow,
+      .date,
+      .section-kicker,
+      .label {
+        margin: 0;
+        font-family: "Optima", "Avenir Next", "Segoe UI", sans-serif;
+        font-size: clamp(0.72rem, 1.7vw, 0.88rem);
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        color: rgba(255, 255, 255, 0.88);
+        animation: fadeUp 900ms 160ms ease-out both;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin: 18px auto 16px;
+        max-width: 100%;
+        font-size: clamp(2.8rem, 13vw, 10.8rem);
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: 0;
+        word-spacing: 0.2em;
+        animation: fadeUp 1000ms 320ms ease-out both;
+      }
+
+      .date {
+        color: rgba(255, 255, 255, 0.92);
+        animation: fadeUp 900ms 520ms ease-out both;
+      }
+
+      .scroll-mark {
+        display: inline-grid;
+        width: 1px;
+        height: 74px;
+        margin-top: 34px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.78));
+        animation: fadeUp 900ms 700ms ease-out both;
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .section {
+        position: relative;
+        padding: clamp(72px, 11vw, 132px) 18px;
+      }
+
+      .section-inner {
+        width: min(100%, 1040px);
+        margin: 0 auto;
+        padding: 0 max(0px, env(safe-area-inset-left)) 0 max(0px, env(safe-area-inset-right));
+      }
+
+      .section-kicker {
+        margin-bottom: 16px;
+        color: var(--gold-deep);
+      }
+
+      h2 {
+        margin-bottom: 34px;
+        font-size: clamp(2.35rem, 6.5vw, 5.2rem);
+        font-weight: 400;
+        line-height: 0.95;
+      }
+
+      .invitation {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 239, 227, 0.58));
+      }
+
+      .lead {
+        max-width: 860px;
+        margin: 0 auto;
+        font-size: clamp(1.8rem, 6vw, 4.8rem);
+        font-weight: 400;
+        line-height: 1.1;
+        word-break: break-word;
+      }
+
+      .divider {
+        width: min(240px, 42vw);
+        height: 1px;
+        margin: 36px auto 0;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      }
+
+      .countdown {
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.84), rgba(246, 239, 227, 0.82)),
+          radial-gradient(circle at 82% 28%, rgba(183, 144, 80, 0.15), transparent 24rem);
+      }
+
+      .timer {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: clamp(10px, 2vw, 20px);
+      }
+
+      .time-box,
+      .event,
+      .venue-panel,
+      .quote-panel {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.62);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+      }
+
+      .time-box {
+        min-width: 0;
+        padding: clamp(18px, 4vw, 34px) clamp(6px, 2vw, 8px);
+      }
+
+      .num {
+        display: block;
+        color: var(--gold-deep);
+        font-size: clamp(1.8rem, 8vw, 5.8rem);
+        font-variant-numeric: tabular-nums;
+        font-weight: 420;
+        line-height: 0.86;
+      }
+
+      .label {
+        display: block;
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: clamp(0.58rem, 1.6vw, 0.78rem);
+      }
+
+      .program-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: clamp(16px, 3vw, 30px);
+        align-items: stretch;
+        text-align: left;
+      }
+
+      .event {
+        display: grid;
+        min-height: 230px;
+        align-content: end;
+        padding: clamp(26px, 5vw, 46px);
+      }
+
+      .event:nth-child(2) {
+        margin-top: 48px;
+        background: rgba(246, 239, 227, 0.7);
+      }
+
+      .event-icon {
+        margin-bottom: 26px;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1;
+      }
+
+      .event h3,
+      .venue-name {
+        margin-bottom: 10px;
+        font-size: clamp(1.8rem, 4.2vw, 3.65rem);
+        font-weight: 400;
+        line-height: 1;
+        word-break: break-word;
+      }
+
+      .event-time,
+      .venue-city {
+        margin-bottom: 0;
+        color: var(--gold-deep);
+        font-family: "Optima", "Avenir Next", "Segoe UI", sans-serif;
+        font-size: clamp(0.9rem, 2.4vw, 1.25rem);
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .place {
+        background: linear-gradient(180deg, rgba(246, 239, 227, 0.62), rgba(255, 253, 248, 0.8));
+      }
+
+      .venue-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 28px;
+        align-items: end;
+        padding: clamp(30px, 6vw, 58px);
+        text-align: left;
+      }
+
+      .venue-name {
+        color: var(--ink);
+        word-break: break-word;
+      }
+
+      .map-button {
+        display: inline-flex;
+        min-height: 52px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px;
+        border: 1px solid rgba(143, 105, 50, 0.56);
+        color: var(--white);
+        background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+        box-shadow: 0 16px 34px rgba(143, 105, 50, 0.22);
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          filter 220ms ease;
+      }
+
+      .map-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 42px rgba(143, 105, 50, 0.28);
+        filter: saturate(1.05);
+      }
+
+      .map-button:focus-visible {
+        outline: 3px solid rgba(183, 144, 80, 0.34);
+        outline-offset: 4px;
+      }
+
+      .quote {
+        padding-bottom: clamp(88px, 12vw, 150px);
+      }
+
+      .quote-panel {
+        padding: clamp(38px, 7vw, 74px) clamp(22px, 6vw, 70px);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(246, 239, 227, 0.78)),
+          radial-gradient(circle at 50% 0%, rgba(183, 144, 80, 0.16), transparent 26rem);
+      }
+
+      blockquote {
+        margin: 0;
+        color: var(--gold-deep);
+        font-size: clamp(1.8rem, 7.4vw, 6.4rem);
+        font-weight: 400;
+        line-height: 1.1;
+        word-break: break-word;
+      }
+
+      .final-note {
+        margin: 34px auto 0;
+        color: var(--ink);
+        font-size: clamp(1.4rem, 4.8vw, 3.2rem);
+        line-height: 1.2;
+        word-break: break-word;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(34px);
+        transition:
+          opacity 850ms ease,
+          transform 850ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes portraitSettle {
+        from {
+          transform: scale(1.08);
+        }
+
+        to {
+          transform: scale(1.03);
+        }
+      }
+
+      @media (max-width: 760px) {
+        .hero {
+          min-height: 100svh;
+          place-items: end center;
+          padding: max(20px, env(safe-area-inset-top)) 12px max(32px, env(safe-area-inset-bottom));
+        }
+
+        .hero::before {
+          background:
+            linear-gradient(180deg, rgba(30, 25, 20, 0.04) 0%, rgba(30, 25, 20, 0.18) 38%, rgba(27, 22, 18, 0.8) 100%),
+            linear-gradient(135deg, #6b5a4a 0%, #4a3f38 50%, #3a2f28 100%);
+        }
+
+        .hero::after {
+          inset: 10px;
+        }
+
+        .hero-content {
+          padding-bottom: 2vh;
+          width: 100%;
+        }
+
+        h1 {
+          max-width: 100%;
+          font-size: clamp(2rem, 12vw, 4rem);
+          margin: 12px auto 12px;
+          line-height: 1.3;
+          word-spacing: normal;
+        }
+
+        .section {
+          padding: clamp(48px, 9vw, 80px) 12px;
+        }
+
+        .section-inner {
+          padding: 0 max(0px, env(safe-area-inset-left)) 0 max(0px, env(safe-area-inset-right));
+        }
+
+        .lead {
+          font-size: clamp(1.4rem, 5vw, 2.4rem);
+          line-height: 1.15;
+        }
+
+        .timer {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: clamp(8px, 2vw, 16px);
+        }
+
+        .time-box {
+          padding: clamp(14px, 3vw, 24px) clamp(4px, 1.5vw, 6px);
+        }
+
+        .num {
+          font-size: clamp(1.4rem, 6vw, 3rem);
+        }
+
+        .label {
+          font-size: clamp(0.5rem, 1.2vw, 0.65rem);
+          margin-top: 8px;
+        }
+
+        .program-grid,
+        .venue-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .event,
+        .event:nth-child(2) {
+          min-height: auto;
+          margin-top: 0;
+          padding: clamp(20px, 4vw, 32px);
+        }
+
+        .event h3 {
+          font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+        }
+
+        .event-time {
+          font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+
+        .venue-panel {
+          gap: 16px;
+          text-align: center;
+          padding: clamp(24px, 5vw, 40px);
+        }
+
+        .venue-name {
+          text-align: center;
+          font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+        }
+
+        .venue-city {
+          font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+
+        .map-button {
+          width: 100%;
+          font-size: clamp(0.9rem, 2vw, 1rem);
+          padding: 0 16px;
+        }
+
+        h2 {
+          font-size: clamp(1.6rem, 5.5vw, 2.8rem);
+          margin-bottom: 24px;
+        }
+
+        blockquote {
+          font-size: clamp(1.4rem, 5vw, 2.8rem);
+        }
+
+        .final-note {
+          font-size: clamp(1rem, 3.5vw, 1.8rem);
+          margin-top: 24px;
+        }
+
+        .quote-panel {
+          padding: clamp(28px, 5vw, 48px) clamp(16px, 4vw, 40px);
+        }
+      }
+
+      @media (max-width: 420px) {
+        .section {
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+
+        .hero {
+          padding: max(16px, env(safe-area-inset-top)) 8px max(24px, env(safe-area-inset-bottom));
+        }
+
+        .hero-content {
+          padding: 10vh 0 2vh;
+        }
+
+        h1 {
+          font-size: clamp(1.6rem, 11vw, 2.8rem);
+          margin: 8px auto 8px;
+          line-height: 1.35;
+        }
+
+        .eyebrow {
+          font-size: 0.65rem;
+        }
+
+        .date {
+          font-size: 0.7rem;
+        }
+
+        .time-box {
+          padding: clamp(10px, 2vw, 16px) 3px;
+        }
+
+        .label {
+          letter-spacing: 0.1em;
+          font-size: 0.48rem;
+        }
+
+        .num {
+          font-size: clamp(1rem, 4.5vw, 2rem);
+        }
+
+        .section-kicker {
+          font-size: 0.6rem;
+        }
+
+        h2 {
+          font-size: clamp(1.2rem, 4.5vw, 1.8rem);
+        }
+
+        .lead {
+          font-size: clamp(1rem, 4vw, 1.6rem);
+          line-height: 1.2;
+        }
+
+        .event h3,
+        .venue-name {
+          font-size: clamp(1rem, 2.8vw, 1.4rem);
+        }
+
+        .event-time,
+        .venue-city {
+          font-size: clamp(0.75rem, 1.6vw, 0.9rem);
+        }
+
+        blockquote {
+          font-size: clamp(1rem, 4vw, 1.8rem);
+        }
+
+        .final-note {
+          font-size: clamp(0.85rem, 3vw, 1.2rem);
+        }
+
+        .map-button {
+          font-size: 0.8rem;
+          padding: 0 12px;
+          min-height: 44px;
+        }
+
+        .divider {
+          margin: 24px auto 0;
+        }
+
+        .scroll-mark {
+          height: 48px;
+          margin-top: 24px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 1ms !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero" aria-label="Головний екран весільного запрошення">
+      <div class="hero-content">
+        <p class="eyebrow">Запрошення на весілля</p>
+        <h1>Юрій &amp; Олександра</h1>
+        <p class="date">08 серпня 2026 року</p>
+        <span class="scroll-mark" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <main>
+      <section class="section invitation">
+        <div class="section-inner reveal">
+          <p class="section-kicker">Наша історія триває</p>
+          <p class="lead">
+            З любов'ю запрошуємо Вас розділити з нами найщасливіший день нашого життя
+          </p>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="section countdown">
+        <div class="section-inner reveal">
+          <p class="section-kicker">До весілля залишилось</p>
+          <h2>Зворотний відлік</h2>
+          <div class="timer" aria-live="polite" aria-label="Зворотний відлік до весілля">
+            <div class="time-box">
+              <span class="num" id="days">0</span>
+              <span class="label">Днів</span>
+            </div>
+            <div class="time-box">
+              <span class="num" id="hours">0</span>
+              <span class="label">Годин</span>
+            </div>
+            <div class="time-box">
+              <span class="num" id="minutes">0</span>
+              <span class="label">Хвилин</span>
+            </div>
+            <div class="time-box">
+              <span class="num" id="seconds">0</span>
+              <span class="label">Секунд</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section program">
+        <div class="section-inner reveal">
+          <p class="section-kicker">Програма дня</p>
+          <h2>Святковий день</h2>
+          <div class="program-grid">
+            <article class="event">
+              <div class="event-icon" aria-hidden="true">💒</div>
+              <h3>Вінчання</h3>
+              <p class="event-time">10:30</p>
+            </article>
+            <article class="event">
+              <div class="event-icon" aria-hidden="true">🥂</div>
+              <h3>Святковий банкет</h3>
+              <p class="event-time">17:00</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section place">
+        <div class="section-inner reveal">
+          <p class="section-kicker">Місце святкування</p>
+          <div class="venue-panel">
+            <div>
+              <p class="venue-name">Ресторан La Vie D'or</p>
+              <p class="venue-city">м. Мукачево</p>
+            </div>
+            <a
+              class="map-button"
+              href="https://www.google.com/maps/search/?api=1&query=%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20La%20Vie%20D%E2%80%99or%20%D0%9C%D1%83%D0%BA%D0%B0%D1%87%D0%B5%D0%B2%D0%BE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Відкрити карту
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section quote">
+        <div class="section-inner reveal">
+          <div class="quote-panel">
+            <blockquote>"Любов ніколи не перестає".</blockquote>
+            <p class="final-note">Будемо щиро раді бачити Вас ❤️</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const weddingDate = new Date(2026, 7, 8, 0, 0, 0).getTime();
+      const timerNodes = {
+        days: document.getElementById("days"),
+        hours: document.getElementById("hours"),
+        minutes: document.getElementById("minutes"),
+        seconds: document.getElementById("seconds"),
+      };
+
+      function updateTimer() {
+        const remaining = Math.max(0, weddingDate - Date.now());
+        const days = Math.floor(remaining / 86400000);
+        const hours = Math.floor((remaining % 86400000) / 3600000);
+        const minutes = Math.floor((remaining % 3600000) / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+
+        timerNodes.days.textContent = days;
+        timerNodes.hours.textContent = String(hours).padStart(2, "0");
+        timerNodes.minutes.textContent = String(minutes).padStart(2, "0");
+        timerNodes.seconds.textContent = String(seconds).padStart(2, "0");
+      }
+
+      updateTimer();
+      window.setInterval(updateTimer, 1000);
+
+      const revealItems = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18 }
+        );
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      }
+    </script>
+  </body>
+</html>
